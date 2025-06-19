@@ -25,7 +25,7 @@ const AboutPage = () => {
               scrollEnd="bottom center"
               textClassName="text-4xl sm:text-5xl md:text-6xl font-bold"
             >
-              Hi, I'm
+              Hi, I&apos;m
             </ScrollFloat>
             <ScrollFloat
               animationDuration={1}

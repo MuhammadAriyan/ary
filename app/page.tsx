@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import NavBar from '@/components/NavBar';
-import SplashCursor from '../components/splashCursor';
+import SplashCursor from '../components/SplashCursor';
 import HomePage from '@/components/home/Home'; 
 import AboutPage from '@/components/about/About';
 import ProjectPage from '@/components/project/Project'

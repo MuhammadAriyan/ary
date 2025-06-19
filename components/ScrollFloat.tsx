@@ -6,7 +6,6 @@ import React, {
   useRef,
   ReactNode,
   RefObject,
-  isValidElement,
 } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';

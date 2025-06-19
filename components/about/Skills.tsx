@@ -1,9 +1,11 @@
 'use client'
 
 import React from 'react'
+import Image from 'next/image'
 import ScrollReveal from '@/components/ScrollReveal'
-import ScrollFloat  from '@/components/ScrollFloat'
+import ScrollFloat from '@/components/ScrollFloat'
 import { motion } from 'framer-motion'
+
 const skillSections = [
   {
     title: 'Languages',
@@ -21,7 +23,7 @@ const skillSections = [
       { name: 'Next.js', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg' },
       { name: 'Tailwind', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg' },
       { name: 'Streamlit', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/streamlit/streamlit-original.svg' },
-       { name: 'uv', logo: '/assets/images/uv.png' },
+      { name: 'uv', logo: '/assets/images/uv.png' }, // local asset, no domain config needed
     ],
   },
   {
@@ -51,6 +53,7 @@ const SkillsSection = () => {
           Skills
         </ScrollFloat>
       </div>
+
       {skillSections.map((section) => (
         <div key={section.title} className="space-y-5">
           <ScrollReveal
@@ -74,10 +77,13 @@ const SkillsSection = () => {
                 className="relative w-[75px] h-[75px] sm:w-[90px] sm:h-[80px] rounded-xl overflow-hidden shadow-md border border-gray-200 bg-white group transition-all hover:shadow-xl"
               >
                 <div className="relative z-10 flex flex-col items-center justify-center h-full px-2 gap-1">
-                  <img
+                  <Image
                     src={logo}
                     alt={`${name} logo`}
-                    className="h-7 sm:h-8 object-contain transition-transform duration-300 group-hover:scale-105 rounded-xl"
+                    width={40}
+                    height={40}
+                    className="object-contain transition-transform duration-300 group-hover:scale-105 rounded-xl"
+                    unoptimized={logo.startsWith('https://')}
                   />
                   <div className="text-[10px] sm:text-xs text-gray-700 font-medium text-center">
                     {name}
