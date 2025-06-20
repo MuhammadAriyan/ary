@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import {
   motion,
@@ -8,8 +8,7 @@ import {
   useTransform,
   type SpringOptions,
   AnimatePresence,
-} from 'framer-motion';
-
+} from "framer-motion";
 import React, {
   Children,
   cloneElement,
@@ -19,7 +18,7 @@ import React, {
   useRef,
   useState,
   ReactElement,
-} from 'react';
+} from "react";
 
 // --------------------
 // Types
@@ -43,10 +42,6 @@ export type DockProps = {
   spring?: SpringOptions;
 };
 
-type HoverableProps = {
-  isHovered: MotionValue<number>;
-};
-
 type DockItemProps = {
   className?: string;
   children: React.ReactNode;
@@ -56,68 +51,7 @@ type DockItemProps = {
   distance: number;
   baseItemSize: number;
   magnification: number;
-  label: React.ReactNode;
 };
-
-// --------------------
-// DockLabel Component
-// --------------------
-
-function DockLabel({
-  children,
-  className = '',
-  isHovered,
-}: {
-  children: React.ReactNode;
-  className?: string;
-  isHovered: MotionValue<number>;
-}) {
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    const unsubscribe = isHovered.on('change', (latest) => {
-      setIsVisible(latest === 1);
-    });
-    return () => unsubscribe();
-  }, [isHovered]);
-
-  return (
-    <AnimatePresence>
-      {isVisible && (
-        <motion.div
-          initial={{ opacity: 0, y: 0 }}
-          animate={{ opacity: 1, y: -10 }}
-          exit={{ opacity: 0, y: 0 }}
-          transition={{ duration: 0.2 }}
-          className={`${className} absolute -top-6 left-1/2 -translate-x-1/2 whitespace-pre rounded-md border border-blue-600 bg-white px-2 py-0.5 text-xs text-blue-500 shadow-md`}
-          role="tooltip"
-        >
-          {children}
-        </motion.div>
-      )}
-    </AnimatePresence>
-  );
-}
-
-// --------------------
-// DockIcon Component
-// --------------------
-
-function DockIcon({
-  children,
-  className = '',
-}: {
-  children: React.ReactNode;
-  className?: string;
-}) {
-  return (
-    <div
-      className={`flex items-center justify-center text-white ${className}`}
-    >
-      {children}
-    </div>
-  );
-}
 
 // --------------------
 // DockItem Component
@@ -125,14 +59,13 @@ function DockIcon({
 
 function DockItem({
   children,
-  className = '',
+  className = "",
   onClick,
   mouseX,
   spring,
   distance,
   magnification,
   baseItemSize,
-  label,
 }: DockItemProps) {
   const ref = useRef<HTMLDivElement>(null);
   const isHovered = useMotionValue(0);
@@ -150,40 +83,97 @@ function DockItem({
     [-distance, 0, distance],
     [baseItemSize, magnification, baseItemSize]
   );
-
   const size = useSpring(targetSize, spring);
 
   return (
     <motion.div
       ref={ref}
-      style={{ width: size, height: size }}
+      style={{
+        width: size,
+        height: size,
+      }}
       onHoverStart={() => isHovered.set(1)}
       onHoverEnd={() => isHovered.set(0)}
       onFocus={() => isHovered.set(1)}
       onBlur={() => isHovered.set(0)}
       onClick={onClick}
+      className={`relative inline-flex items-center justify-center rounded-full bg-[#060010] border-blue-700 border-2 shadow-md ${className}`}
       tabIndex={0}
       role="button"
       aria-haspopup="true"
-      className={`relative inline-flex items-center justify-center rounded-full bg-[#060010] border-blue-700 border-2 shadow-md transition-transform duration-200 ease-in-out hover:scale-105 ${className}`}
     >
       {Children.map(children, (child) =>
         isValidElement(child)
-          ? cloneElement(child as ReactElement<HoverableProps>, { isHovered })
+          ? cloneElement(child as ReactElement<any>, { isHovered })
           : child
       )}
-      <DockLabel isHovered={isHovered}>{label}</DockLabel>
     </motion.div>
   );
 }
 
 // --------------------
-// Dock Component
+// DockLabel Component
+// --------------------
+
+type DockLabelProps = {
+  className?: string;
+  children: React.ReactNode;
+  isHovered: MotionValue<number>;
+};
+
+function DockLabel({ children, className = "", isHovered }: DockLabelProps) {
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const unsubscribe = isHovered.on("change", (latest) => {
+      setIsVisible(latest === 1);
+    });
+    return () => unsubscribe();
+  }, [isHovered]);
+
+  return (
+    <AnimatePresence>
+      {isVisible && (
+        <motion.div
+          initial={{ opacity: 0, y: 0 }}
+          animate={{ opacity: 1, y: -10 }}
+          exit={{ opacity: 0, y: 0 }}
+          transition={{ duration: 0.2 }}
+          className={`${className} absolute -top-6 left-1/2 w-fit whitespace-pre rounded-md border border-blue-600 bg-[#ffffff] px-2 py-0.5 text-xs text-blue-500`}
+          role="tooltip"
+          style={{ x: "-50%" }}
+        >
+          {children}
+        </motion.div>
+      )}
+    </AnimatePresence>
+  );
+}
+
+// --------------------
+// DockIcon Component
+// --------------------
+
+type DockIconProps = {
+  className?: string;
+  children: React.ReactNode;
+};
+
+function DockIcon({ children, className = "" }: DockIconProps) {
+  return (
+    <div className={`flex items-center justify-center text-white ' ${className}`}>
+      {children}
+    </div>
+  );
+}
+
+// --------------------
+// Main Dock Component
 // --------------------
 
 export default function Dock({
   items,
-  className = '',
+  className = "",
   spring = { mass: 0.1, stiffness: 150, damping: 12 },
   magnification = 70,
   distance = 200,
@@ -198,15 +188,11 @@ export default function Dock({
     () => Math.max(dockHeight, magnification + magnification / 2 + 4),
     [magnification, dockHeight]
   );
-
   const heightRow = useTransform(isHovered, [0, 1], [panelHeight, maxHeight]);
   const height = useSpring(heightRow, spring);
 
   return (
-    <motion.div
-      style={{ height }}
-      className="mx-2 flex max-w-full items-center justify-center"
-    >
+    <motion.div style={{ height }} className="mx-2 flex max-w-full items-center">
       <motion.div
         onMouseMove={({ pageX }) => {
           isHovered.set(1);
@@ -216,7 +202,7 @@ export default function Dock({
           isHovered.set(0);
           mouseX.set(Infinity);
         }}
-        className={`${className} bg-white/10 absolute bottom-2 left-1/2 -translate-x-1/2 flex items-end w-fit gap-4 rounded-2xl border-blue-700 border-2 pb-2 px-4 backdrop-blur-md shadow-lg`}
+        className={`${className} bg-white/10 absolute bottom-2 left-1/2 transform -translate-x-1/2 flex items-end w-fit gap-4 rounded-2xl border-blue-700 border-2 pb-2 px-4`}
         style={{ height: panelHeight }}
         role="toolbar"
         aria-label="Application dock"
@@ -225,15 +211,15 @@ export default function Dock({
           <DockItem
             key={index}
             onClick={item.onClick}
-            className={item.className}
+            className={`${item.className}  bg-white/10`}
             mouseX={mouseX}
             spring={spring}
             distance={distance}
             magnification={magnification}
             baseItemSize={baseItemSize}
-            label={item.label}
           >
-            <DockIcon>{item.icon}</DockIcon>
+            <DockIcon className=''>{item.icon}</DockIcon>
+            <DockLabel isHovered={useMotionValue(0)}>{item.label}</DockLabel>
           </DockItem>
         ))}
       </motion.div>

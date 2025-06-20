@@ -41,7 +41,7 @@ const skillSections = [
 
 const SkillsSection = () => {
   return (
-    <div className="space-y-2 p-10">
+    <div className="space-y-2 p-10 g-gradient-to-b from-white to-gray-50">
       <div className="flex justify-center">
         <ScrollFloat
           animationDuration={1}

@@ -38,10 +38,10 @@ export default function HomePage() {
         />
       </div>
 
-      {/* Center 3D Identity Animation */}
-      <div className="absolute inset-0 flex items-center justify-center z-10 pointer-events-none">
-        <Lanyard position={[0, 0, 20]} />
-      </div>
+        {/* Center 3D Identity Animation */}
+        <div className="absolute inset-0 flex items-center justify-center z-10 pointer-events-none">
+          <Lanyard position={[0, 0, 20]} />
+        </div>
 
       {/* Card Stack Section */}
       <div className="absolute bottom-10 right-10 z-20 max-w-sm sm:max-w-md">

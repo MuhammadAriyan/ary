@@ -40,7 +40,11 @@ const ScrollFloat: React.FC<ScrollFloatProps> = ({
   const content = useMemo(() => {
     if (typeof children === 'string') {
       return children.split('').map((char, index) => (
-        <span className="inline-block" key={index}>
+        <span
+          className={`inline-block ${char === ' ' ? 'w-2 sm:w-3' : ''}`}
+          aria-hidden="true"
+          key={index}
+        >
           {char === ' ' ? '\u00A0' : char}
         </span>
       ));

@@ -5,7 +5,7 @@ import NavBar from '@/components/NavBar';
 import SplashCursor from '../components/SplashCursor';
 import HomePage from '@/components/home/Home'; 
 import AboutPage from '@/components/about/About';
-import ProjectPage from '@/components/project/Project'
+import ProjectPage from '@/components/project/Project';
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
 
@@ -36,8 +36,8 @@ export default function Home() {
           <SplashCursor />
           <HomePage />
           <AboutPage />
-          <ProjectPage/>
-        </>
+          <ProjectPage />
+          </>
       )}
     </main>
   );
