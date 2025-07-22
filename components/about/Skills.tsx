@@ -23,7 +23,7 @@ const skillSections = [
       { name: 'Next.js', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg' },
       { name: 'Tailwind', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg' },
       { name: 'Streamlit', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/streamlit/streamlit-original.svg' },
-      { name: 'uv', logo: '/assets/images/uv.png' }, // local asset, no domain config needed
+      { name: 'uv', logo: '/assets/images/uv.png' },
     ],
   },
   {
@@ -35,6 +35,14 @@ const skillSections = [
       { name: 'Sanity CMS', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sanity/sanity-original.svg' },
       { name: 'Canva', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/canva/canva-original.svg' },
       { name: 'NPM', logo: 'https://skillicons.dev/icons?i=npm' },
+      { name: 'Vercel', logo: 'https://skillicons.dev/icons?i=vercel' },
+    ],
+  },
+  {
+    title: 'AI Models',
+    items: [
+      { name: 'Gemini AI', logo: '/assets/images/gemini.png' },   // add this to your assets
+      { name: 'Mistral AI', logo: '/assets/images/mistral.png' }, // add this too
     ],
   },
 ]

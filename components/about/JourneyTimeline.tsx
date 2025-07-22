@@ -44,7 +44,7 @@ const journey = [
 
 export default function JourneyTimeline() {
   return (
-    <section className="px-6 py-12 md:px-20 text-gray-900">
+    <section className="px-6 py-12  md:px-20 text-gray-900">
       <div className="flex justify-center mb-12">
         <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-black text-center">
           <ScrollFloat

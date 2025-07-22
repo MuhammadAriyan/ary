@@ -11,7 +11,7 @@ const traits = ['Creative', 'Discipline', 'Love', 'Lead', 'Focus'];
 
 const AboutPage = () => {
   return (
-    <section className="min-h-screen px-4 sm:px-10 py-16 sm:py-20 bg-gradient-to-b from-white to-gray-50 text-gray-900 font-sans">
+    <section className="min-h-screen px-4 sm:px-10 py-16 sm:py-20 bg-gradient-to-b from-white to-gray-50 text-gray-900 font-sans" id='about'>
       <div className="max-w-6xl mx-auto space-y-20">
 
         {/* Intro */}

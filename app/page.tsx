@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 import { useEffect, useState } from 'react';
 import NavBar from '@/components/NavBar';
@@ -6,14 +6,14 @@ import SplashCursor from '../components/SplashCursor';
 import HomePage from '@/components/home/Home'; 
 import AboutPage from '@/components/about/About';
 import ProjectPage from '@/components/project/Project';
+import ConnectPage from '@/components/Connect/Connect';
+
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const handleLoad = () => {
-      setTimeout(() => {
-        setIsLoading(false);
-      }, 800); // Optional delay for smoother feel
+      setTimeout(() => setIsLoading(false), 3000);
     };
 
     if (document.readyState === 'complete') {
@@ -25,10 +25,12 @@ export default function Home() {
   }, []);
 
   return (
-    <main className="relative">
+    <main className="relative w-full h-full">
+      
+      {/* 🔄 Loading Screen */}
       {isLoading ? (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black text-white">
-          <span className="text-xl font-semibold">Loading...</span>
+        <div className="fixed inset-0 z-50 flex items-center justify-center  text-white">
+         
         </div>
       ) : (
         <>
@@ -37,7 +39,8 @@ export default function Home() {
           <HomePage />
           <AboutPage />
           <ProjectPage />
-          </>
+          <ConnectPage />
+        </>
       )}
     </main>
   );
