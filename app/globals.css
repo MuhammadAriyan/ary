@@ -25,3 +25,12 @@ body {
   color: var(--foreground);
   font-family: "Manrope",Arial, Helvetica, sans-serif;
 }
+.scroll-container {
+  overflow: auto;                  /* Enables scrolling */
+  -ms-overflow-style: none;       /* IE and Edge */
+  scrollbar-width: none;          /* Firefox */
+}
+
+.scroll-container::-webkit-scrollbar {
+  display: none;                  /* Chrome, Safari, Opera */
+}
