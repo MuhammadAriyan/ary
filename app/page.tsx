@@ -25,7 +25,7 @@ export default function Home() {
   }, []);
 
   return (
-    <main className="relative w-full h-full">
+    <main className="relative w-full h-full bg-gradient-to-b from-white to-gray-50 ">
       
       {/* 🔄 Loading Screen */}
       {isLoading ? (
