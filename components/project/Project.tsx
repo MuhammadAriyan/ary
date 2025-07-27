@@ -111,7 +111,7 @@ const ProjectPage: React.FC = () => {
         transition={{ duration: 0.8, ease: 'easeOut' }}
         viewport={{ once: false }}
         className="flex justify-center mb-12"
-      >
+      > 
         <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-black text-center">
           Projects
         </h2>
