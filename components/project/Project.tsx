@@ -75,7 +75,6 @@ const projects = [
     image: '/assets/project/7.png',
     description: 'Fun typing speed tester made with modern TypeScript stack.',
     techIcons: [
-      'https://skillicons.dev/icons?i=npm',
       'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg',
     ],
   },
