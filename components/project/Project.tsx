@@ -4,7 +4,7 @@ import React, { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import Image from 'next/image';
 
-const projects = [
+const projects = [ 
   {
     title: 'Furniture E-commerce Website',
     image: '/assets/project/1.png',
