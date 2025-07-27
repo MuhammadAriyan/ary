@@ -140,7 +140,6 @@ const ProjectPage: React.FC = () => {
                     className="rounded-2xl object-cover w-full h-auto"
                   />
                 </div>
-
                 <div className="w-full md:w-1/2 flex flex-col justify-center">
                   <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">{project.title}</h3>
                   <p className="text-base sm:text-lg text-gray-700 mb-6 leading-relaxed">
