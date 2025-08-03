@@ -77,10 +77,10 @@ const SkillsSection = () => {
           <div className="flex flex-wrap justify-center gap-3 sm:gap-4">
             {section.items.map(({ name, logo }) => (
               <motion.div
-                initial={{ opacity: 0, y: 20 }}
+                initial={false}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, ease: 'easeOut' }}
-                viewport={{ once: false }}
+                transition={{ duration: 0.4, ease: 'easeOut' }}
+                viewport={{ once: true, amount: 0.3 }}
                 key={name}
                 className="relative w-[75px] h-[75px] sm:w-[90px] sm:h-[80px] rounded-xl overflow-hidden shadow-md border border-gray-200 bg-white group transition-all hover:shadow-xl"
               >
