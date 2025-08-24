@@ -93,12 +93,23 @@ export default function HomePage() {
           </CardSwap>
         </div>
       </div>
-      <a 
-      href="/resume-final.pdf" 
-      download 
-        className="absolute bg-blue-500 px-4 py-2 text-white border-2 bottom-10 left-5 md:left-10 z-20 max-w-[90vw] sm:max-w-md">
-        View My Resume ❄
-        </a>
+      <motion.div
+      initial={{ y: 80, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ type: "spring", stiffness: 120, damping: 12 }}
+      className="absolute bottom-10 left-5 md:left-10 z-20"
+    >
+      <a
+        href="/resume-final.pdf"
+        download
+        className="px-6 py-3 text-lg font-semibold text-white rounded-2xl shadow-xl
+                   bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-600
+                   hover:scale-105 hover:shadow-2xl transition-all duration-300 ease-in-out
+                   max-w-[90vw] sm:max-w-md flex items-center gap-2"
+      >
+        ❄ View My Resume
+      </a>
+    </motion.div>
     </main>
   );
 }
