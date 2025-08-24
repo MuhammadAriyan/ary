@@ -93,7 +93,9 @@ export default function HomePage() {
           </CardSwap>
         </div>
       </div>
-
+      <div className="absolute bg-blue-500 border-2 bottom-10 left-5 md:left-10 z-20 max-w-[90vw] sm:max-w-md">
+        View My Resume ❄
+        </div>
     </main>
   );
 }
