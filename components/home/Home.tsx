@@ -94,11 +94,11 @@ export default function HomePage() {
         </div>
       </div>
       <a 
-      href="/resume.pdf" 
+      href="/resume-final.pdf" 
       download 
         className="absolute bg-blue-500 px-4 py-2 text-white border-2 bottom-10 left-5 md:left-10 z-20 max-w-[90vw] sm:max-w-md">
         View My Resume ❄
-        </div>
+        </a>
     </main>
   );
 }
