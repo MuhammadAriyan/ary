@@ -23,7 +23,7 @@ const NavBar: FC = () => {
     {
       icon: <Blocks size={20} className={iconClass} />,
       label: 'Projects',
-      onClick: () => router.push('#projects'),
+      onClick: () => router.push('#project'),
     },
     {
       icon: <Cable size={20} className={iconClass} />,
