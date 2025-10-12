@@ -100,7 +100,7 @@ export default function HomePage() {
       className="absolute bottom-10 left-5 md:left-10 z-20"
     >
       <a
-        href="/resume-final.pdf"
+        href="/About_Aryan.pdf"
         download
         className="px-6 py-3 text-lg font-semibold text-white rounded-2xl shadow-xl
                    bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-600
