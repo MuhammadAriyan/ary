@@ -22,8 +22,8 @@ const hobbies = [
     img: '/assets/gif/cook.gif',
   },
   {
-    name: 'Playing with Cats',
-    description: 'Relaxing and bonding with my feline companions.',
+    name: 'Chess',
+    description: 'Relaxing and bonding with my feline companionz.',
     img: '/assets/gif/cat.gif',
   },
   {
